@@ -1,0 +1,93 @@
+.close{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+.close i{
+	color: #444;
+}
+.fa-user-circle{
+	font-size: 20px;
+}
+nav{
+	position: absolute;
+	right: 20px;
+	top: 20px;
+}
+
+.input a{
+	display: inline;
+}
+/*.right{
+	float: right;
+}*/
+.clear{
+	clear: both;
+}
+.align{
+	border: 1px solid #ddd;
+	background-color: #fff;
+	width: 400px;
+	top: 50%;
+	left: 50%;
+}
+.input{
+	text-align: center;
+}
+input{
+	outline: none;
+}
+.input input{
+	padding: 10px;
+	padding-left: 30px;
+	margin: 10px;
+	width: 230px;
+}
+.input-all{
+	padding: 20px;
+}
+.align{
+	position: absolute;
+	padding: 20px;
+}
+.lr{
+	display: none;
+}
+.lr,body{
+	height: 100%;
+	background-color: burlywood;
+}
+.lr.a-login .login,.lr.a-register .register{
+	transform:translate(-50%,-50%) rotateY(0deg);
+	backface-visibility: hidden;
+	transition: all 1s;
+}
+.lr.a-login .register,.lr.a-register .login{
+	transform:translate(-50%,-50%) rotateY(180deg);
+	backface-visibility: hidden;
+	transition: all 1s;
+}
+.a-login,.a-register{
+	color: #444;
+	text-decoration: none;
+	padding: 8px 0px;
+	margin: 0 10px;
+}
+.active{
+	border-bottom: 2px solid #444;
+
+}
+.input-a i{
+	position: relative;
+	left: 40px;
+}
+.buttom{
+	margin-left: 43px;
+}
+.buttom input{
+	padding: 6px 10px;
+}
+.errormsg {
+    color: #ff9800;
+    font-size: 12px;
+}
