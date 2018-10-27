@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>登录|注册</title>
+		<link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="LR.css"/>
+	</head>
+	<body>
+		<nav>
+			<a href="#" class="right a-login"><i class="fa fa-user-circle"></i></a>
+		</nav>
+		<div class="clear"></div>
+		<div class="lr a-login">
+			<div class="login align">
+				<a class="close" href="#"><i class="fa fa-close"></i></a>
+				<div  class="input input-lr">
+					<a class="active a-login" href="#">登录</a>
+					<a class="a-register" href="#">注册</a>
+				</div>
+				<div class="input-all">
+					<div class="errormsg"></div>
+					<form action="/a-login" method="post">
+						<div class="input input-first input-a">
+							<i class="fa fa-user-o a"></i>
+							<input name="username" type="text" placeholder="用户名"/>
+						</div>
+						<div class="input input-a">
+							<i class="fa fa-lock b"></i>
+							<input name="password" type="password" value="" placeholder="密码"/>
+						</div>
+						<div class="buttom">
+							<input type="submit" value="登录" />
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="register align">
+				<a class="close" href="#"><i class="fa fa-close"></i></a>
+				<div class="input input-lr">
+					<a class="a-login" href="#">登录</a>
+					<a class="active a-register" href="#">注册</a>
+				</div>
+				<div class="input-all">
+					<div class="errormsg"></div>
+					<form action="/a-register" method="post">
+						<div class="input input-first input-a">
+							<i class="fa fa-user-o a"></i>
+							<input name="username" type="text" value="" placeholder="输入用户名"/>
+						</div>
+						<div class="input input-a">
+							<i class="fa fa-lock b"></i>
+							<input name="password" type="password" value="" placeholder="输入密码"/>
+						</div>
+						<div class="input input-a">
+							<i class="fa fa-lock c"></i>
+							<input name="password2" type="password" value="" placeholder="再次输入密码"/>
+						</div>
+						<div class="buttom">
+							<input type="submit" value="注册" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		function $(selector){
+			return document.querySelector(selector)
+		}
+		 function $$(selector){
+      		return document.querySelectorAll(selector)
+    	}
+
+    	 /*$('nav .a-login').onclick = function(e){
+      e.stopPropagation()
+      $('.lr').style.display = 'block'
+    }
+
+   
+
+    $('.lr').addEventListener('click', function(e){    
+    function $(selector){
+      return document.querySelector(selector)
+    }
+    function $$(selector){
+      return document.querySelectorAll(selector)
+    }
+
+		/*$('.align .a-login').onclick=function(){
+			$('.lr').classList.remove('a-register')
+			$('.lr').classList.add('a-login')
+		}
+		$('.align .a-register').onclick=function(){
+			$('.lr').classList.remove('a-login')
+			$('.lr').classList.add('a-register')
+		}*/
+
+    $('nav .a-login').onclick = function(e){
+      e.stopPropagation()
+      $('.lr').style.display = 'block'
+    }
+
+
+    $('.lr').addEventListener('click', function(e){
+      e.stopPropagation()
+      if(e.target.classList.contains('a-login')){
+        $('.lr').classList.remove('a-register')
+        $('.lr').classList.add('a-login') 
+      }
+      if(e.target.classList.contains('a-register')){
+        $('.lr').classList.add('a-register')
+        $('.lr').classList.remove('a-login') 
+      }
+      console.log(e.target)
+      console.log(this)
+      window.target = e.target
+      if(e.target.classList.contains('close')){
+        $('.lr').style.display = 'none'
+      }
+    })
+    document.addEventListener('click', function(){
+      $('.lr').style.display = 'none'
+    })
+
+    $('.login form').addEventListener('submit', function(e){
+      e.preventDefault()
+      if(!/^\w{3,8}$/.test($('.login input[name=username]').value)){
+        $('.login .errormsg').innerText = '用户名需输入3-8个字符，包括字母数字下划线'
+        return false
+      }
+      if(!/^\w{6,10}$/.test($('.login input[name=password]').value)){
+        $('.login .errormsg').innerText = '密码需输入6-10个字符，包括字母数字下划线'
+        return false
+      }
+      this.submit()      
+    })
+
+    $('.register form').addEventListener('submit', function(e){
+      e.preventDefault()
+      if(!/^\w{3,8}$/.test($('.register input[name=username]').value)){
+        $('.register .errormsg').innerText = '用户名需输入3-8个字符，包括字母数字下划线'
+        return false
+      }
+      if(/^hunger$|^ruoyu$/.test($('.register input[name=username]').value)){
+        $('.register .errormsg').innerText = '用户名已存在'
+        return false
+      }
+      if(!/^\w{6,10}$/.test($('.register input[name=password]').value)){
+        $('.register .errormsg').innerText = '密码需输入6-10个字符，包括字母数字下划线'
+        return false
+      }
+      if($('.register input[name=password]').value !== $('.register input[name=password2]').value){
+        $('.register .errormsg').innerText = '两次输入的密码不一致'
+        return false
+      }
+      this.submit()      
+    })
+
+	</script>
+</html>
